@@ -1,0 +1,30 @@
+{
+  "name": "calendar-widget",
+  "version": "0.0.1",
+  "description": "calenar widget",
+  "main": "main.js",
+  "scripts": {
+    "watch": "NODE_ENV=development watchify ./src/app.jsx -o ./build.js -t babelify -t envify -v",
+    "build:js": "NODE_ENV=production browserify ./src/app.jsx -t babelify -t envify | uglifyjs -c warnings=false > ./build.js",
+    "build:app": "mkdir dist && electron-packager . CalendarWidget --out ./dist/ --platform=darwin --arch=x64 --version=0.35.4",
+    "clean": "rm -rf ./dist && rm ./build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "firebrick26 <firebrick26@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "envify": "^3.4.0",
+    "uglify-js": "^2.6.1",
+    "watchify": "^3.6.1"
+  }
+}
